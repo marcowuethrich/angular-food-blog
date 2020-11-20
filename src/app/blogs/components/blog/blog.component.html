@@ -1,0 +1,40 @@
+<div *ngIf="blog && !blog.inactive" [id]="blog.id" class="card mt-2">
+  <div class="card-header">
+    {{blog.title}}
+  </div>
+
+  <!-- Content -->
+  <div class="card-body">
+
+    <div class="row mb-2">
+      <!-- Img -->
+      <div class="col-2">
+        <img [alt]="blog.title" [src]="blog.imageURL" height="250px">
+      </div>
+      <!-- Meta Infos -->
+      <div class="col-10 pr-2 pl-3">
+        <p>{{blog.subTitle}}</p>
+
+        <label class="font-weight-bold">About</label>
+        <ul>
+          <li>
+            <pre class="mb-0">Author: {{blog.author}}</pre>
+          </li>
+          <li>
+            <pre class="mb-0">Created: {{blog.created}}</pre>
+          </li>
+          <li>
+            <pre class="mb-0">Last update: {{blog.updated}}</pre>
+          </li>
+        </ul>
+
+        <button class="btn btn-sm btn-outline-warning">Update</button>
+        <button class="btn btn-sm btn-outline-danger ml-2">Delete</button>
+      </div>
+
+    </div>
+
+    <div [innerHTML]="blog.content"></div>
+  </div>
+
+</div>
