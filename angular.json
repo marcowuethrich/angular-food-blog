@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "angular-food-blog"
+  "defaultProject": "angular-food-blog",
+  "cli": {
+    "analytics": false
+  }
 }
