@@ -8,11 +8,11 @@
 
     <div class="row mb-2">
       <!-- Img -->
-      <div class="col-2">
-        <img [alt]="blog.title" [src]="blog.imageURL" height="250px">
+      <div class="col-12 col-md-4">
+        <img [alt]="blog.title" [src]="blog.imageURL" class="responsive">
       </div>
       <!-- Meta Infos -->
-      <div class="col-10 pr-2 pl-3">
+      <div class="col-12 col-md-8 pr-2 pl-3">
         <p>{{blog.subTitle}}</p>
 
         <label class="font-weight-bold">About</label>
@@ -28,8 +28,8 @@
           </li>
         </ul>
 
-        <button class="btn btn-sm btn-outline-warning">Update</button>
-        <button class="btn btn-sm btn-outline-danger ml-2">Delete</button>
+        <button class="btn btn-sm btn-outline-warning" routerLink="./update/{{blog.id}}">Update</button>
+        <button class="btn btn-sm btn-outline-danger ml-2" type="button" (click)="delete()">Delete</button>
       </div>
 
     </div>

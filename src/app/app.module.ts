@@ -6,16 +6,13 @@ import {BlogsModule} from './blogs/blogs.module';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/shared.module';
 
-
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    BlogsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
