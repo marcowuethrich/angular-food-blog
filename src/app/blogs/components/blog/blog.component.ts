@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Blog} from '../../model/blog';
 
 @Component({
@@ -9,6 +9,7 @@ import {Blog} from '../../model/blog';
 export class BlogComponent implements OnInit {
 
   @Input() blog: Blog | undefined;
+  @Output() deleted = new EventEmitter<string>();
 
   constructor() {
   }
@@ -18,8 +19,7 @@ export class BlogComponent implements OnInit {
 
   delete(): void {
     if (confirm(`You're about to delete: "${this.blog?.title}"\nAre you sure?`)) {
-      // TODO delete blog entry
-      console.log('delete sure !');
+      this.deleted.emit(this.blog?.id);
     }
   }
 }

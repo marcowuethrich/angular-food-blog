@@ -74,7 +74,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-food-blog:build"
+            "browserTarget": "angular-food-blog:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

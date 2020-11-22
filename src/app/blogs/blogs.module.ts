@@ -7,6 +7,7 @@ import {BlogFormComponent} from './components/blog-form/blog-form.component';
 import {BlogListComponent} from './components/blog-list/blog-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,10 +19,11 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     BlogsRoutingModule,
     ReactiveFormsModule,
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
   ]
 })
 export class BlogsModule {

@@ -1,1 +1,1 @@
-<app-blog *ngFor="let blog of blogs" [blog]="blog" ></app-blog>
+<app-blog *ngFor="let blog of blogs" [blog]="blog" (deleted)="removeBlog($event)"></app-blog>

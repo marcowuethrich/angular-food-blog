@@ -1,5 +1,5 @@
 export interface Blog {
-  id: string;
+  id?: string;
   title: string;
   subTitle: string;
   content: string;
@@ -7,5 +7,5 @@ export interface Blog {
   author: string;
   created: string;
   updated: string;
-  inactive: boolean;
+  active: boolean;
 }

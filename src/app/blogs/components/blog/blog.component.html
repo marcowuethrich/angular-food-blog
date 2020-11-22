@@ -1,6 +1,10 @@
-<div *ngIf="blog && !blog.inactive" [id]="blog.id" class="card mt-2">
+<div *ngIf="blog" [id]="blog.id" class="card mt-2">
   <div class="card-header">
-    {{blog.title}}
+    <div class="">
+      {{blog.title}}
+      <a class="badge badge-success float-right mt-1" *ngIf="blog.active">Active</a>
+      <a class="badge badge-warning float-right mt-1" *ngIf="!blog.active">Inactive</a>
+    </div>
   </div>
 
   <!-- Content -->
@@ -29,7 +33,7 @@
         </ul>
 
         <button class="btn btn-sm btn-outline-warning" routerLink="./update/{{blog.id}}">Update</button>
-        <button class="btn btn-sm btn-outline-danger ml-2" type="button" (click)="delete()">Delete</button>
+        <button (click)="delete()" class="btn btn-sm btn-outline-danger ml-2" type="button">Delete</button>
       </div>
 
     </div>
