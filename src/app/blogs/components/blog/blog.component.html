@@ -2,8 +2,8 @@
   <div class="card-header">
     <div class="">
       {{blog.title}}
-      <a class="badge badge-success float-right mt-1" *ngIf="blog.active">Active</a>
-      <a class="badge badge-warning float-right mt-1" *ngIf="!blog.active">Inactive</a>
+      <a *ngIf="blog.active" class="badge badge-success float-right mt-1">Active</a>
+      <a *ngIf="!blog.active" class="badge badge-warning float-right mt-1">Inactive</a>
     </div>
   </div>
 

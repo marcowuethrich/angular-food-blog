@@ -27,6 +27,12 @@ export class BlogFormComponent implements OnInit {
               private foodBlogService: FoodBlogService) {
   }
 
+  // tslint:disable-next-line:typedef
+  get fc() {
+    console.log(this.blogForm.controls);
+    return this.blogForm.controls;
+  }
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       if (params.id) {
@@ -41,12 +47,6 @@ export class BlogFormComponent implements OnInit {
         this.loaded = true;
       }
     });
-  }
-
-  // tslint:disable-next-line:typedef
-  get fc() {
-    console.log(this.blogForm.controls);
-    return this.blogForm.controls;
   }
 
   isFormValid(control: AbstractControl): boolean {

@@ -1,9 +1,18 @@
 import {TestBed} from '@angular/core/testing';
 
 import {FoodBlogService} from './food-blog.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-describe('FoodBlogServiceService', () => {
+describe('FoodBlogService', () => {
   let service: FoodBlogService;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: []
+    })
+      .compileComponents();
+  });
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

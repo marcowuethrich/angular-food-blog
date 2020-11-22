@@ -1,14 +1,14 @@
 <div class="container">
   <h3 *ngIf="!blogId" class="mt-3 mb-3">Create new Blog entry</h3>
   <h3 *ngIf="blogId" class="mt-3 mb-3">Update Blog entry</h3>
-  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" *ngIf="loaded">
+  <form (ngSubmit)="onSubmit()" *ngIf="loaded" [formGroup]="blogForm">
     <div class="form-group">
       <label for="title">Title:</label>
-      <input class="form-control"
+      <input [class.is-invalid]="isFormValid(fc.title)"
+             class="form-control"
              formControlName="title"
              id="title"
-             type="text"
-             [class.is-invalid]="isFormValid(fc.title)">
+             type="text">
       <div *ngIf="isFormValid(fc.title) && fc.title.errors.required" class="invalid-feedback">
         Title is required.
       </div>
@@ -21,11 +21,11 @@
     </div>
     <div class="form-group">
       <label for="subTitle">Sub-Title:</label>
-      <input class="form-control"
+      <input [class.is-invalid]="isFormValid(fc.subTitle)"
+             class="form-control"
              formControlName="subTitle"
              id="subTitle"
-             type="text"
-             [class.is-invalid]="isFormValid(fc.subTitle)">
+             type="text">
       <div *ngIf="isFormValid(fc.subTitle) && fc.subTitle.errors.required" class="invalid-feedback">
         Sub-Title is required.
       </div>
@@ -39,11 +39,11 @@
 
     <div class="form-group">
       <label for="author">Author:</label>
-      <input class="form-control"
+      <input [class.is-invalid]="isFormValid(fc.author)"
+             class="form-control"
              formControlName="author"
              id="author"
-             type="text"
-             [class.is-invalid]="isFormValid(fc.author)">
+             type="text">
       <div *ngIf="isFormValid(fc.author) && fc.author.errors.required" class="invalid-feedback">
         Author is required.
       </div>
@@ -57,11 +57,11 @@
 
     <div class="form-group">
       <label for="imageURL">URL <small>(image)</small>:</label>
-      <input class="form-control"
+      <input [class.is-invalid]="isFormValid(fc.imageURL)"
+             class="form-control"
              formControlName="imageURL"
              id="imageURL"
-             type="text"
-             [class.is-invalid]="isFormValid(fc.imageURL)">
+             type="text">
       <div *ngIf="isFormValid(fc.imageURL) && fc.imageURL.errors.required" class="invalid-feedback">
         URL is required.
       </div>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="form-check mt-4 mb-4">
-      <input type="checkbox" class="form-check-input" id="active" formControlName="active">
+      <input class="form-check-input" formControlName="active" id="active" type="checkbox">
       <label class="form-check-label" for="active">Active</label>
     </div>
 
@@ -80,16 +80,16 @@
       <div *ngIf="isFormValid(fc.content) && fc.content.errors.required" class="invalid-feedback">
         Blog content is required.
       </div>
-      <div [froalaEditor]='options'
+      <div [class.is-invalid]="isFormValid(fc.content)"
+           [froalaEditor]='options'
            formControlName="content"
-           id="content"
-           [class.is-invalid]="isFormValid(fc.content)"></div>
+           id="content"></div>
     </div>
 
     <div class="row justify-content-end nd pr-4 pl-4">
       <button class="btn btn-secondary" routerLink="../" type="button">Back</button>
-      <button *ngIf="!blogId" class="btn btn-success ml-2" type="submit" [disabled]="!blogForm.valid">Create</button>
-      <button *ngIf="blogId" class="btn btn-success ml-2" type="submit" [disabled]="!blogForm.valid">Update</button>
+      <button *ngIf="!blogId" [disabled]="!blogForm.valid" class="btn btn-success ml-2" type="submit">Create</button>
+      <button *ngIf="blogId" [disabled]="!blogForm.valid" class="btn btn-success ml-2" type="submit">Update</button>
     </div>
   </form>
 </div>
