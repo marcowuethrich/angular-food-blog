@@ -1,6 +1,11 @@
 {
   "name": "angular-food-blog",
-  "version": "0.0.0",
+  "author": {
+    "name": "Marco Wuethrich",
+    "email": "marco.wuethrich.pr@gmail.com",
+    "url": "https://github.com/marcowuethrich"
+  },
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

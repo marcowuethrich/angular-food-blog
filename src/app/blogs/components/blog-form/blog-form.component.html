@@ -1,7 +1,7 @@
 <div class="container">
   <h3 *ngIf="!blogId" class="mt-3 mb-3">Create new Blog entry</h3>
   <h3 *ngIf="blogId" class="mt-3 mb-3">Update Blog entry</h3>
-  <form (ngSubmit)="onSubmit()" *ngIf="loaded" [formGroup]="blogForm">
+  <form (ngSubmit)="onSubmit()" *ngIf="fc.title" [formGroup]="blogForm">
     <div class="form-group">
       <label for="title">Title:</label>
       <input [class.is-invalid]="isFormValid(fc.title)"

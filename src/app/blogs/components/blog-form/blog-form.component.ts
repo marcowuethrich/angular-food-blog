@@ -13,7 +13,6 @@ import {v4 as uuidv4} from 'uuid';
 export class BlogFormComponent implements OnInit {
 
   blogId: string | undefined;
-  loaded = false;
   blog: Blog | undefined;
   blogForm: FormGroup = new FormGroup({});
   options = {
@@ -29,22 +28,19 @@ export class BlogFormComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   get fc() {
-    console.log(this.blogForm.controls);
     return this.blogForm.controls;
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       if (params.id) {
+        this.blogId = params.id;
         this.foodBlogService.fetchById(params.id).subscribe(blog => {
           this.blog = blog;
           this.createBlogForm();
-          this.blogId = params.id;
-          this.loaded = true;
         });
       } else {
         this.createBlogForm();
-        this.loaded = true;
       }
     });
   }
@@ -53,8 +49,8 @@ export class BlogFormComponent implements OnInit {
     return control.invalid && (control.dirty || control.touched);
   }
 
-  createBlogForm(): FormGroup {
-    return this.blogForm = new FormGroup({
+  createBlogForm(): void {
+    this.blogForm = new FormGroup({
       title: new FormControl(this.blog ? this.blog.title : '',
         [Validators.required, Validators.minLength(3), Validators.maxLength(128)]),
       subTitle: new FormControl(this.blog ? this.blog.subTitle : '',

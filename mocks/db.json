@@ -2,7 +2,7 @@
   "food-blogs": [
     {
       "title": "Food blog entry 1",
-      "subTitle": "blakdjfaksdflkasjdfkasjd fask fdjaskdf. asdfjaslf ",
+      "subTitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consequatur cupidita",
       "author": "Marco Wuethrich",
       "content": "<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam corporis doloribus ducimus enim fugit, laboriosam laborum laudantium magni natus nihil nobis nostrum officia, quidem reiciendis repellendus repudiandae, soluta ullam voluptatum.</div><div>Aliquam architecto asperiores aspernatur aut commodi corporis cupiditate delectus est fugit incidunt magnam nemo nisi obcaecati, officiis, perferendis quae quod quos suscipit, ullam vero? Consequuntur est hic repudiandae totam voluptate!</div><div>Consequatur corporis esse facilis impedit molestiae porro praesentium? Consectetur eveniet facere fuga neque omnis optio, voluptatum? Accusantium, dolore eveniet illum laborum magni odio qui sapiente sequi sit. Eveniet iste, voluptatibus?</div><div>A dicta eos fuga illum in laudantium minus officia perferendis praesentium, rerum sequi tenetur vel. Dignissimos, neque quis. Accusamus distinctio dolor facilis harum nam officia optio quam sint tempora voluptate.</div><div>Accusantium animi corporis dolore ipsa minus, ratione sapiente tempora! Alias amet beatae dignissimos dolor dolorem dolores doloribus dolorum, eos fugiat id, iusto molestias necessitatibus odit officiis porro praesentium quia veniam.</div>",
       "imageURL": "https://picsum.photos/200/300",
@@ -46,7 +46,7 @@
     },
     {
       "title": "Custom new Entry",
-      "subTitle": "bla bla bla ",
+      "subTitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consequatur cupidita",
       "author": "ich und du",
       "content": "<p>Lore <u>akjsf</u></p><p>asf</p><p><strong>asdf</strong></p><p>asd</p><p>f</p>",
       "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NYSE_Logo.svg/1920px-NYSE_Logo.svg.png",
