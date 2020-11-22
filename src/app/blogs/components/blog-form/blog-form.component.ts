@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Blog} from '../../model/blog';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {FoodBlogService} from '../../services/food-blog.service';
 import {v4 as uuidv4} from 'uuid';
 
@@ -43,10 +43,20 @@ export class BlogFormComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
+  get fc() {
+    console.log(this.blogForm.controls);
+    return this.blogForm.controls;
+  }
+
+  isFormValid(control: AbstractControl): boolean {
+    return control.invalid && (control.dirty || control.touched);
+  }
+
   createBlogForm(): FormGroup {
     return this.blogForm = new FormGroup({
       title: new FormControl(this.blog ? this.blog.title : '',
-        [Validators.required, Validators.minLength(3), Validators.maxLength(48)]),
+        [Validators.required, Validators.minLength(3), Validators.maxLength(128)]),
       subTitle: new FormControl(this.blog ? this.blog.subTitle : '',
         [Validators.required, Validators.minLength(3),
           Validators.maxLength(128)]),
@@ -55,7 +65,7 @@ export class BlogFormComponent implements OnInit {
       imageURL: new FormControl(this.blog ? this.blog.imageURL : '',
         [Validators.required, Validators.minLength(8)]),
       active: new FormControl(this.blog ? this.blog.active : true),
-      content: new FormControl(this.blog ? this.blog.content : '')
+      content: new FormControl(this.blog ? this.blog.content : '', [Validators.required])
     });
   }
 

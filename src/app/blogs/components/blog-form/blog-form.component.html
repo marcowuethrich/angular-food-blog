@@ -4,21 +4,70 @@
   <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" *ngIf="loaded">
     <div class="form-group">
       <label for="title">Title:</label>
-      <input class="form-control" formControlName="title" id="title" type="text">
+      <input class="form-control"
+             formControlName="title"
+             id="title"
+             type="text"
+             [class.is-invalid]="isFormValid(fc.title)">
+      <div *ngIf="isFormValid(fc.title) && fc.title.errors.required" class="invalid-feedback">
+        Title is required.
+      </div>
+      <div *ngIf="isFormValid(fc.title) && fc.title.errors.minlength" class="invalid-feedback">
+        Title must be at least 3 characters long.
+      </div>
+      <div *ngIf="isFormValid(fc.title) && fc.title.errors.maxlength" class="invalid-feedback">
+        Title can only have 128 characters.
+      </div>
     </div>
     <div class="form-group">
-      <label for="subTitle">Sub Title:</label>
-      <input class="form-control" formControlName="subTitle" id="subTitle" type="text">
+      <label for="subTitle">Sub-Title:</label>
+      <input class="form-control"
+             formControlName="subTitle"
+             id="subTitle"
+             type="text"
+             [class.is-invalid]="isFormValid(fc.subTitle)">
+      <div *ngIf="isFormValid(fc.subTitle) && fc.subTitle.errors.required" class="invalid-feedback">
+        Sub-Title is required.
+      </div>
+      <div *ngIf="isFormValid(fc.subTitle) && fc.subTitle.errors.minlength" class="invalid-feedback">
+        Sub-Title must be at least 3 characters long.
+      </div>
+      <div *ngIf="isFormValid(fc.subTitle) && fc.subTitle.errors.maxlength" class="invalid-feedback">
+        Sub-Title can only have 128 characters.
+      </div>
     </div>
 
     <div class="form-group">
       <label for="author">Author:</label>
-      <input class="form-control" formControlName="author" id="author" type="text">
+      <input class="form-control"
+             formControlName="author"
+             id="author"
+             type="text"
+             [class.is-invalid]="isFormValid(fc.author)">
+      <div *ngIf="isFormValid(fc.author) && fc.author.errors.required" class="invalid-feedback">
+        Author is required.
+      </div>
+      <div *ngIf="isFormValid(fc.author) && fc.author.errors.minlength" class="invalid-feedback">
+        Author must be at least 3 characters long.
+      </div>
+      <div *ngIf="isFormValid(fc.author) && fc.author.errors.maxlength" class="invalid-feedback">
+        Author can only have 128 characters.
+      </div>
     </div>
 
     <div class="form-group">
       <label for="imageURL">URL <small>(image)</small>:</label>
-      <input class="form-control" formControlName="imageURL" id="imageURL" type="text">
+      <input class="form-control"
+             formControlName="imageURL"
+             id="imageURL"
+             type="text"
+             [class.is-invalid]="isFormValid(fc.imageURL)">
+      <div *ngIf="isFormValid(fc.imageURL) && fc.imageURL.errors.required" class="invalid-feedback">
+        URL is required.
+      </div>
+      <div *ngIf="isFormValid(fc.imageURL) && fc.imageURL.errors.minlength" class="invalid-feedback">
+        URL must be at least 8 characters long.
+      </div>
     </div>
 
     <div class="form-check mt-4 mb-4">
@@ -28,7 +77,13 @@
 
     <div class="form-group">
       <label for="content">Blog content:</label>
-      <div [froalaEditor]='options' formControlName="content" id="content"></div>
+      <div *ngIf="isFormValid(fc.content) && fc.content.errors.required" class="invalid-feedback">
+        Blog content is required.
+      </div>
+      <div [froalaEditor]='options'
+           formControlName="content"
+           id="content"
+           [class.is-invalid]="isFormValid(fc.content)"></div>
     </div>
 
     <div class="row justify-content-end nd pr-4 pl-4">
